@@ -110,7 +110,7 @@ export class Cli {
 
         varLoop:
             for (let key in this.envVariables) {
-                let value = (process.env[key] || "").toString();
+                let value: string = (process.env[key] || "").toString();
                 let replacementVar;
 
                 if (value) {
@@ -135,6 +135,9 @@ export class Cli {
                         value = (process.env[replacementVar[1]] || "").toString();
                     }
 
+                    if (value.startsWith('__snake__')) {
+                        value = value.substr(9).replace(/[-\s]/ig, '_');
+                    }
                     modifier[path.shift()] = value;
                 }
             }
