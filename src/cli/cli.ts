@@ -381,7 +381,6 @@ export class Cli {
                     process.on("SIGHUP", () => process.exit());
                     process.on("SIGTERM", () => process.exit());
 
-                    console.log(options);
                     echo.run(options);
                 },
             );
