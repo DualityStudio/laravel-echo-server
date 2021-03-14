@@ -487,8 +487,6 @@ export class Cli {
         const appId = yargs.argv._[1] || this.createAppId();
         options.clients = options.clients || [];
 
-        console.log(options.clients);
-
         if (appId) {
             let index = null;
             let client = options.clients.find((client, i) => {
